@@ -1,8 +1,8 @@
 <template>
     <div class="card-panel">
         <h5>Account Settings</h5>
-        <button @click="editUsername()" class="btn waves-effect waves-light blue accent-4 btn-block">Change Username</button>
-        <button @click="editPassword()" class="btn waves-effect waves-light blue accent-4 btn-block">Change Password</button>
+        <button @click="editUsername()" class="btn waves-effect waves-light blue accent-4 btn-block"><i class="material-icons left">account_circle</i>Change Username</button>
+        <button @click="editPassword()" class="btn waves-effect waves-light blue accent-4 btn-block"><i class="material-icons left">lock</i>Change Password</button>
     </div>
 
 
