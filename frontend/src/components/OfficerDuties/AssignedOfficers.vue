@@ -37,7 +37,10 @@
                                     </div>
                                 </div>
                                 <div class="duty-item">
-                                    <button @click="this.deleteDuty(assignedDuty.id, assignedDuty.duty)" class="btn waves-effect waves-lighten red accent-4 btn-block">Delete</button>
+                                    <button @click="this.deleteDuty(assignedDuty.id, assignedDuty.duty)" class="btn waves-effect waves-lighten red accent-4">
+                                        Delete
+                                        <i class="material-icons left">delete_forever</i>
+                                    </button>
                                 </div>
                             </div>
                         </li>
