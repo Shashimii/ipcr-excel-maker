@@ -35,10 +35,10 @@ WshShell.Run "C:\xampp\apache_start.bat", 0, False
 WshShell.Run "C:\xampp\mysql_start.bat", 0, False
 
 ' Start Laravel API server
-WshShell.Run "cmd /c cd /d C:\code\ipcr-excel-localhost\api && php artisan serve", 0, False
+WshShell.Run "cmd /c cd /d C:\code\ipcr-excel-maker\api && php artisan serve", 0, False
 
 ' Start Vue.js frontend
-WshShell.Run "cmd /c cd /d C:\code\ipcr-excel-localhost\frontend && npm run serve", 0, False
+WshShell.Run "cmd /c cd /d C:\code\ipcr-excel-maker\frontend && npm run serve", 0, False
 
 ' Wait a moment for the services to start
 WScript.Sleep 7000  ' Wait for 7 seconds
