@@ -4,13 +4,11 @@
         <ul class="collapsible">
             <li v-for="(officer, index) in this.assignedOfficers" :key="index">
                 <div class="collapsible-header">
-                    <div class="collapsible-header-officer">
-                        <i class="material-icons">person</i>
-                        <h5>{{ officer.name }}</h5>
-                    </div>
-                    <div>
-                        <i class="material-icons">list</i>
-                    </div>
+                    <i class="material-icons">person</i>
+                        {{ officer.name }}
+                    <span class="new badge red" data-badge-caption="Duties">
+                        {{ officer.assigned_duties.length }}
+                    </span>
                 </div>
                 <div class="collapsible-body">
                     <div class="header">
@@ -167,18 +165,6 @@ export default {
 </script>
 
 <style scoped>
-.collapsible-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.collapsible-header-officer {
-    display: flex;
-    align-items: center;
-
-}
-
 .header {
     display: flex;
     align-items: center;
