@@ -9,10 +9,13 @@
         <div v-if="officers.length != 0">
             <ul>
                 <li v-for="(officer, index) in this.officers" :key="index" class="list">
-                    <p class="list-text">{{ officer.name }}</p>
+                    <div class="list-item">
+                        <i class="material-icons">person</i>
+                        <p class="list-text">{{ officer.name }}</p>
+                    </div>
                     <div class="list-btn">
-                        <button @click="editOfficer(index)" class="btn waves-effect waves-light blue accent-4">Edit</button>
-                        <button @click="deleteOfficer(index)" class="btn waves-effect waves-light red accent-4">Delete</button>
+                        <button @click="editOfficer(index)" class="btn waves-effect waves-light blue accent-4"><i class="material-icons left">edit</i>Edit</button>
+                        <button @click="deleteOfficer(index)" class="btn waves-effect waves-light red accent-4"><i class="material-icons left">delete_forever</i>Delete</button>
                     </div>
                 </li>
             </ul>
@@ -33,10 +36,13 @@
         <div v-if="duties.length != 0">
             <ul>
                 <li v-for="(duty, index) in this.duties" :key="index" class="list">
-                    <p class="list-text">{{ duty.title }}</p>
+                    <div class="list-item">
+                        <i class="material-icons">description</i>
+                        <p class="list-text">{{ duty.title }}</p>
+                    </div>
                     <div class="list-btn">
-                        <button @click="editDuty(index)" class="btn waves-effect waves-light blue accent-4">Edit</button>
-                        <button @click="deleteDuty(index)" class="btn waves-effect waves-light red accent-4">Delete</button>
+                        <button @click="editDuty(index)" class="btn waves-effect waves-light blue accent-4"><i class="material-icons left">edit</i>Edit</button>
+                        <button @click="deleteDuty(index)" class="btn waves-effect waves-light red accent-4"><i class="material-icons left">delete_forever</i>Delete</button>
                     </div>
                 </li>
             </ul>
@@ -425,6 +431,13 @@ export default {
 
 .list:hover {
     background-color: #cfd8dc;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .list-btn {
