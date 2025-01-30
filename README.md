@@ -1,5 +1,5 @@
 
-# IPCR Tracker - Localhost
+# IPCR Excel Maker
 
 - IPCR Tracker - Localhost is Offline Version of [Task Action Excel Maker](https://github.com/Shashimii/task-action-excel-maker-frontend)
 - App version 0.8 - beta
