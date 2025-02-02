@@ -9,6 +9,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.no-select {
+    user-select: none; /* For modern browsers */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer */
+}
+
 body {
   background-color: #eceff1;
   min-height: 100vh;
