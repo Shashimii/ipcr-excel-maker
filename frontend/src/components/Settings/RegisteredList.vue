@@ -408,6 +408,11 @@ export default {
 </script>
 
 <style scoped>
+p {
+  word-wrap: break-word; /* This forces long words to break and wrap to the next line */
+  overflow-wrap: break-word;
+}
+
 .card-panel {
     padding: 0;
 }
@@ -441,7 +446,9 @@ export default {
 }
 
 .list-btn {
+    min-width: 16rem;
     display: flex;
+    justify-content: flex-end;
     gap: 1rem;
 }
 
