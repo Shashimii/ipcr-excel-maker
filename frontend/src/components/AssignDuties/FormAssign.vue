@@ -97,7 +97,7 @@ export default {
             // flag
             let isValid = true;
             // valid format
-            const regex = /^\d+$/;
+            const regex = /^[a-zA-Z0-9-_]+$/;
 
             // validate
 
