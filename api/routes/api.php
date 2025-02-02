@@ -47,6 +47,7 @@ Route::delete('/deleteDuty/{id}', [DutiesController::class, 'deleteDuty']);
 Route::get('/getAssignedDuties', [AssignedDutiesController::class, 'getAssignedDuties']);
 Route::post('/postAssignedDuty', [AssignedDutiesController::class, 'postAssignedDuty']);
 Route::delete('/deleteAssignedDuty/{id}', [AssignedDutiesController::class, 'deleteAssignedDuty']);
+Route::delete('/deleteAllAssignedDuties', [AssignedDutiesController::class, 'clearAssignedDuties']);
 
 // Assigned Officers
 Route::get('/getAssignedOfficers', [OfficersController::class, 'getAssignedOfficers']);

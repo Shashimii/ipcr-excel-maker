@@ -70,4 +70,15 @@ class AssignedDutiesController extends Controller
         // response
         return response()->json(['message' => 'Assigned duty deleted successfully'], 200);
     }
+
+    // delete all
+    public function clearAssignedDuties() {
+        $rowCount = AssignedDuties::count();
+        if ($rowCount > 0) {
+            AssignedDuties::query()->delete();
+            return response()->json(['message' => 'All assigned duty deleted successfully'], 200);
+        } else {
+            return response()->json(['message' => 'Assigned duty is empty'], 404);
+        }
+    }
 }
