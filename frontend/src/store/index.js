@@ -307,6 +307,22 @@ export default createStore({
         console.error(error);     
       }
     },
+
+    async deleteAllAssignedDuties({ dispatch }) {
+      try {
+        const response = await axios.delete(`/deleteAllAssignedDuties`);
+        
+        if (response.status === 200) {
+          dispatch('getAssignedOfficers');
+          M.toast({
+            html: '<p class="toast-text">All Assigned Duties Deleted Successfully.<p>',
+            displayLength: 3000
+          })
+        }
+      } catch (error) {
+        console.error(error);     
+      }
+    },
     
   },
 

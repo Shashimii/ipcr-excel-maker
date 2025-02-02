@@ -1,5 +1,9 @@
 <template>
-    <h3>Officer Duties</h3>
+    <header>
+        <h3>Officer Duties</h3>
+
+        <button v-if="this.assignedOfficers.length != 0" @click="deleteAll()" class="btn waves-effect waves-light red accent-4"><i class="material-icons left">delete_sweep</i>Delete All</button>
+    </header>
     <div v-if="assignedOfficers.length != 0">
         <ul class="collapsible">
             <li v-for="(officer, index) in this.assignedOfficers" :key="index">
@@ -36,7 +40,7 @@
                                         <p>{{ assignedDuty.code }}</p>
                                     </div>
                                 </div>
-                                <div class="duty-item">
+                                <div class="duty-item-btn">
                                     <button @click="this.deleteDuty(assignedDuty.id, assignedDuty.duty)" class="btn waves-effect waves-lighten red accent-4">
                                         Delete
                                         <i class="material-icons left">delete_forever</i>
@@ -64,6 +68,18 @@
         <div class="modal-footer">
             <button @click.prevent="resetModal()" class="btn-flat waves-effect waves-light modal-close btn-block">No Cancel</button>
             <button @click="applyDeleteDuty()" class="btn waves-effect waves-light red accent-4 btn-block">Yes Delete Duty</button>
+        </div>
+    </div>
+    <div id="confirmDeleteAll" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <i class="large material-icons red-text">delete_forever</i>
+            <h4>Delete All Duties</h4>
+            <h5>Sure you want to Delete All Assigned Duties ?</h5>
+            <h5 class="red-text">This cannot be undone.</h5>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-flat waves-effect waves-light modal-close btn-block">No Cancel</button>
+            <button @click="applyDeleteAll()" class="btn waves-effect waves-light red accent-4 btn-block">Yes Delete All Assigned Duties</button>
         </div>
     </div>
 </template>
@@ -113,6 +129,15 @@ export default {
                     duty: ''
                 }
             }
+        },
+
+        deleteAll() {
+            // open modal
+            M.Modal.getInstance(document.getElementById('confirmDeleteAll')).open();
+        },
+
+        applyDeleteAll() {
+            this.$store.dispatch('deleteAllAssignedDuties');
         },
 
         materializeCSS() {
@@ -168,6 +193,12 @@ export default {
 </script>
 
 <style scoped>
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -194,6 +225,16 @@ export default {
 
 .assigned-duty:hover {
     background-color: #cfd8dc;
+}
+
+.duty-item {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.duty-item-btn {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .duty-item-content {
