@@ -126,6 +126,11 @@ export default {
 
         // this excel export method is still not optimized and created on vanila javascript
         excelExport() {
+            M.toast({
+                html: '<p class="toast-text">Downloadng Excel File..<p>',
+                displayLength: 5000
+            })
+
             let workbook = new ExcelJS.Workbook(); // creare a new worksheet using ExcelJS
             let worksheet = workbook.addWorksheet("Sheet1") // add sheet named "Sheet 1"
             let table = document.querySelector('table')// Html Table
