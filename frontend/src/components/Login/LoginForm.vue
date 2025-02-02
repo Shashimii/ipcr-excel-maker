@@ -14,17 +14,21 @@
                         <label for="username">Enter Username</label>
                         <p v-if="validationMSG.validateUsername" class="validation">{{ validationMSG.validateUsername }}</p>
                     </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">lock</i>
-                        <input v-model="loginCredentials.password" placeholder="Password" id="password" :type="showPassword ? 'text' : 'password'">
-                        <label for="password">Enter Password</label>
-                        <p v-if="validationMSG.validatePassword" class="validation">{{ validationMSG.validatePassword }}</p>
+                    <div class="password-field-container">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            <input v-model="loginCredentials.password" placeholder="Password" id="password" :type="showPassword ? 'text' : 'password'">
+                            <label for="password">Enter Password</label>
+                            <p v-if="validationMSG.validatePassword" class="validation">{{ validationMSG.validatePassword }}</p>
+                        </div>
+
+                        <a class="toggle-password-btn no-select" @click.prevent="togglePassword()">
+                            <i v-if="showPassword" class="material-icons">visibility_off</i>
+                            <i v-else class="material-icons">visibility</i>
+                        </a>
                     </div>
 
                     <div class="btn-container">
-                        <button @click.prevent="togglePassword()" class="btn waves-effect waves-light blue accent-4 btn-block">
-                            {{ showPassword ? 'Hide' : 'Show' }} Password
-                        </button>
                         <button class="btn waves-effect waves-light green accent-4 btn-block" type="submit">Sign up</button>
                     </div>
                 </form>
@@ -156,12 +160,21 @@ export default {
     gap: 2rem;
 }
 
+.password-field-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password-btn {
+    color: black;
+    cursor: pointer;
+}
+
 .btn-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     padding-inline: 0.7rem;
-    gap: 1.5rem;
 }
 
 .footer {
